@@ -2304,17 +2304,6 @@ native __fake__ class ChromeGetDetailEvent extends _CommonEvent
 /* dictionary */ class CreateOptions {
 }
 
-/** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/sockets_udp.idl */
-/* dictionary */ class CreateInfo {
-
-    // The id of the newly created socket.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var socketId : number/*long*/;
-
-    // The ID of the newly created socket.
-
-} // end of CreateInfo
-
 /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
 /* dictionary */ class AcceptInfo {
 
@@ -2336,56 +2325,6 @@ native __fake__ class ChromeGetDetailEvent extends _CommonEvent
 
 } // end of RecvFromInfo
 
-/** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/sockets_udp.idl */
-/* dictionary */ class SocketInfo {
-
-    // The type of the passed socket. This will be <code>tcp</code> or
-    // <code>udp</code>.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var socketType : string/*SocketType*/;
-    // Whether or not the underlying socket is connected.
-    //
-    // For <code>tcp</code> sockets, this will remain true even if the remote
-    // peer has disconnected. Reading or writing to the socket may then result
-    // in an error, hinting that this socket should be disconnected via
-    // <code>disconnect()</code>.
-    //
-    // For <code>udp</code> sockets, this just represents whether a default
-    // remote address has been specified for reading and writing packets.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var connected : boolean;
-    // If the underlying socket is connected, contains the IPv4/6 address of
-    // the peer.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var peerAddress : Nullable.<string>/*DOMString?*/;
-    // If the underlying socket is connected, contains the port of the
-    // connected peer.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var peerPort : Nullable.<number>/*long?*/;
-    // If the underlying socket is bound or connected, contains its local
-    // IPv4/6 address.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var localAddress : Nullable.<string>/*DOMString?*/;
-    // If the underlying socket is bound or connected, contains its local port.
-    /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
-    var localPort : Nullable.<number>/*long?*/;
-
-    // The socket identifier.
-    var socketId : number/*long*/;
-    // Flag indicating whether the socket is left open when the application is
-    // suspended (see <code>SocketProperties.persistent</code>).
-    var persistent : boolean;
-    // Application-defined string associated with the socket.
-    var name : Nullable.<string>/*DOMString?*/;
-    // The size of the buffer used to receive data. If no buffer size has been
-    // specified explictly, the value is not provided.
-    var bufferSize : Nullable.<number>/*long?*/;
-    // If the underlying socket is bound, contains its local
-    // IPv4/6 address.
-    // If the underlying socket is bound, contains its local port.
-
-} // end of SocketInfo
-
 /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/socket.idl */
 /* dictionary */ class NetworkInterface {
 
@@ -2396,59 +2335,6 @@ native __fake__ class ChromeGetDetailEvent extends _CommonEvent
     var address : string/*DOMString*/;
 
 } // end of NetworkInterface
-
-/** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/sockets_udp.idl */
-/* dictionary */ class SocketProperties {
-
-    // Flag indicating if the socket is left open when the event page of
-    // the application is unloaded (see
-    // <a href="http://developer.chrome.com/apps/app_lifecycle.html">Manage App
-    // Lifecycle</a>). The default value is "false." When the application is
-    // loaded, any sockets previously opened with persistent=true can be fetched
-    // with <code>getSockets</code>.
-    var persistent : Nullable.<boolean>;
-    // An application-defined string associated with the socket.
-    var name : Nullable.<string>/*DOMString?*/;
-    // The size of the buffer used to receive data. If the buffer is too small
-    // to receive the UDP packet, data is lost. The default value is 4096.
-    var bufferSize : Nullable.<number>/*long?*/;
-
-} // end of SocketProperties
-
-/** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/sockets_udp.idl */
-/* dictionary */ class SendInfo {
-
-    // The result code returned from the underlying network call.
-    // A negative value indicates an error.
-    var result : number/*long*/;
-    // The number of bytes sent (if result == 0)
-    var bytesWritten : Nullable.<number>/*long?*/;
-
-} // end of SendInfo
-
-/** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/sockets_udp.idl */
-/* dictionary */ class ReceiveInfo {
-
-    // The socket ID.
-    var socketId : number/*long*/;
-    // The UDP packet content (truncated to the current buffer size).
-    var data : ArrayBuffer;
-    // The address of the host the packet comes from.
-    var remoteAddress : string/*DOMString*/;
-    // The port of the host the packet comes from.
-    var remotePort : number/*long*/;
-
-} // end of ReceiveInfo
-
-/** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/sockets_udp.idl */
-/* dictionary */ class ReceiveErrorInfo {
-
-    // The socket ID.
-    var socketId : number/*long*/;
-    // The result code returned from the underlying recvfrom() call.
-    var result : number/*long*/;
-
-} // end of ReceiveErrorInfo
 
 /** @see http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/storage.json */
 /* dictionary */ class StorageChange {
