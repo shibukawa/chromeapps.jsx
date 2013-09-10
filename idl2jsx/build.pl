@@ -22,7 +22,7 @@ unlink "$root/.idl2jsx.bin";
 # NOTE: some specs are varying, so we specify the published date.
 
 my @specs = (
-    ['chromeapps.jsx' =>
+    ['chromeapps_reference.jsx' =>
         'alarm; http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/alarms.idl',
         'app.runtime; http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/app_runtime.idl',
         'app.window; http://src.chromium.org/svn/trunk/src/chrome/common/extensions/api/app_window.idl',

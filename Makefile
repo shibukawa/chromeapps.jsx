@@ -3,7 +3,7 @@ JOBS:=4
 
 PORT:=2012
 
-all: lib/chromeapps.jsx doc
+all: doc
 
 ## compiler stuff
 
@@ -16,10 +16,10 @@ doc:
 # e.g. make test JOBS=2
 
 # for authors
-lib/chromeapps.jsx: idl2jsx/json2idl
+lib/chromeapps_reference.jsx: idl2jsx/json2idl
 	idl2jsx/build.pl
-	idl2jsx/maketest.pl > t/lib/001.chromeapps.jsx
-	jsx --test --add-search-path . t/lib/001.chromeapps.jsx
+	#idl2jsx/maketest.pl > t/lib/001.chromeapps.jsx
+	#jsx --test --add-search-path . t/lib/001.chromeapps.jsx
 
 idl2jsx/json2idl: idl2jsx/json2idl.jsx
 	jsx --release --output $@ --executable node $<
